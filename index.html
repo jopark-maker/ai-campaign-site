@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI·업무자동화 확산 캠페인 | 수출영업2팀</title>
+
+<style>
+  :root { --deep:#0f4c5c; --teal:#1b7f8c; --accent:#f28c28; --mist:#e9f4f5; --ink:#1f2937; --muted:#64748b; --line:#d3e4e6; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif; color:var(--ink); background:#f6fafa; line-height:1.6; }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 20px; }
+  .datebar { background:var(--accent); color:#fff; font-size:14px; font-weight:700; }
+  .datebar .wrap { display:flex; justify-content:space-between; height:34px; align-items:center; }
+  header { background:var(--deep); color:#fff; }
+  header .wrap { display:flex; justify-content:space-between; align-items:center; height:68px; }
+  .brand { display:flex; align-items:center; gap:12px; }
+  .logo-slot { width:44px; height:44px; border:2px dashed rgba(255,255,255,.6); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:10px; line-height:1.2; text-align:center; color:rgba(255,255,255,.8); }
+  .brand b { letter-spacing:.5px; } .brand small { display:block; font-size:12px; opacity:.75; font-weight:400; }
+  header nav { font-size:14px; opacity:.85; }
+  .hero { background:linear-gradient(135deg,var(--deep) 0%,var(--teal) 100%); color:#fff; padding:90px 0 100px; position:relative; overflow:hidden; }
+  .hero::before { content:""; position:absolute; right:40px; bottom:40px; width:260px; height:110px; border-radius:6px;
+    background:repeating-linear-gradient(90deg,rgba(242,140,40,.85) 0 14px,rgba(242,140,40,.65) 14px 18px); opacity:.35; transform:rotate(-6deg); }
+  .eyebrow { display:inline-block; font-size:13px; letter-spacing:3px; color:var(--deep); background:#fff; font-weight:700; padding:4px 12px; border-radius:20px; }
+  .hero h1 { font-size:clamp(32px,5.5vw,54px); line-height:1.2; margin:18px 0; }
+  .hero h1 em { font-style:normal; color:var(--accent); }
+  .hero p { font-size:18px; color:#d7eef0; max-width:640px; }
+  section { padding:72px 0; }
+  h2 { font-size:28px; color:var(--deep); margin-bottom:8px; }
+  .lead { color:var(--muted); margin-bottom:32px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
+  .card { background:#fff; border:1px solid var(--line); border-left:6px solid var(--accent); border-radius:14px; padding:28px 24px; box-shadow:0 4px 14px rgba(15,76,92,.06); }
+  .card .num { font-size:13px; font-weight:700; color:var(--teal); letter-spacing:2px; }
+  .card h3 { font-size:20px; color:var(--deep); margin:8px 0 10px; }
+  .card p { color:#475569; font-size:15px; }
+  .team { display:inline-block; font-size:12px; font-weight:700; color:var(--accent); border:1px solid var(--accent); border-radius:12px; padding:1px 8px; margin-bottom:6px; }
+  .period { background:var(--mist); }
+  .period-box { display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:space-between; background:#fff; border:1px solid var(--line); border-radius:14px; padding:32px; }
+  .dates { font-size:clamp(22px,3.5vw,32px); font-weight:700; color:var(--deep); }
+  .steps { display:flex; gap:10px; flex-wrap:wrap; }
+  .steps div { background:var(--mist); color:var(--deep); font-size:14px; font-weight:700; padding:8px 14px; border-radius:20px; }
+  .qr-sec .wrap { display:flex; flex-wrap:wrap; gap:40px; align-items:center; }
+  .qr { width:200px; height:200px; border:3px dashed var(--teal); border-radius:14px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--teal); font-weight:700; background:#fff; }
+  header nav a { color:#fff; text-decoration:none; margin-left:16px; }
+  header nav a:hover { text-decoration:underline; }
+  .btn { display:inline-block; background:var(--accent); color:#fff; font-weight:700; font-size:15px; padding:12px 22px; border:0; border-radius:10px; cursor:pointer; text-decoration:none; font-family:inherit; }
+  .btn:hover { filter:brightness(.95); }
+  .hero .btn { margin-top:28px; }
+  .quote { background:var(--mist); }
+  .quote-box { background:#fff; border:1px solid var(--line); border-left:6px solid var(--accent); border-radius:14px; padding:32px; }
+  .quote-form { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px 20px; margin-bottom:20px; }
+  .quote-form label { display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:700; color:var(--deep); }
+  .quote-form .full { grid-column:1 / -1; }
+  .quote-form input, .quote-form select, .quote-form textarea { font-family:inherit; font-size:15px; font-weight:400; color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:10px 12px; background:#fff; }
+  .quote-form textarea { min-height:90px; resize:vertical; }
+  .notice { background:var(--mist); color:var(--deep); font-size:14px; border-radius:10px; padding:14px 16px; margin-bottom:20px; }
+  .notice b { color:var(--deep); }
+  .quote-msg { margin-top:12px; font-size:14px; color:var(--muted); }
+  footer { background:var(--deep); color:#cfe7ea; padding:30px 0; text-align:center; }
+  footer b { color:#fff; font-size:16px; } footer small { display:block; margin-top:4px; opacity:.7; }
+</style>
+</head>
+<body>
+<div class="datebar"><div class="wrap"><span id="today">오늘</span><span>AI·업무자동화 확산 캠페인 진행 중</span></div></div>
+
+<header><div class="wrap">
+  <div class="brand"><div class="logo-slot">부서<br>로고</div><div><b>OO상선</b><small>수출영업2팀</small></div></div>
+  <nav>사내 캠페인<a href="hall-of-fame.html">명예의 전당</a><a href="#quote">견적 요청</a></nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <span class="eyebrow">AI · AUTOMATION CAMPAIGN 2026</span>
+  <h1>견적은 빠르게,<br>숫자는 <em>정확하게</em></h1>
+  <p>운임 점검, 선복 현황, 주보·월마감 집계처럼 매일·매주 반복되는 일은 AI에게 맡기고, 우리는 고객과 선복을 지키는 판단에 집중합니다.</p>
+  <a class="btn" href="#quote">거래처 견적 요청</a>
+</div></div>
+
+<section><div class="wrap">
+  <h2>핵심 메시지</h2>
+  <p class="lead">수출영업2팀이 AI·업무자동화를 시작하는 세 가지 이유</p>
+  <div class="cards">
+    <div class="card"><span class="team">수출영업2팀</span><div class="num">MESSAGE 01</div><h3>회신은 더 빠르게</h3><p>수출영업2팀은 견적 회신·부킹 컨펌 초안을 AI로 준비해 고객 대기 시간을 줄입니다.</p></div>
+    <div class="card"><span class="team">수출영업2팀</span><div class="num">MESSAGE 02</div><h3>숫자는 더 정확하게</h3><p>수출영업2팀의 주보·월마감 집계는 자동화하고, 결과는 항상 원천 합계와 대조해 출처를 남깁니다.</p></div>
+    <div class="card"><span class="team">수출영업2팀</span><div class="num">MESSAGE 03</div><h3>신뢰는 더 단단하게</h3><p>수출영업2팀은 허용된 도구만 쓰고 고객 정보는 가립니다. 고객에게 나가는 문서는 담당자가 확인 후 발송합니다.</p></div>
+  </div>
+</div></section>
+
+<section class="period"><div class="wrap">
+  <h2>캠페인 기간</h2>
+  <p class="lead">8주 동안 부서별로 업무 하나씩 자동화해 봅니다</p>
+  <div class="period-box">
+    <div class="dates">2026. 11. 16 (월) ~ 2027. 01. 08 (금)</div>
+    <div class="steps"><div>1~2주 교육</div><div>3~6주 실습</div><div>7~8주 사례 공유</div></div>
+  </div>
+</div></section>
+
+<section class="qr-sec"><div class="wrap">
+  <div class="qr"><div>QR코드 자리<br><small style="font-weight:400">참여 신청 링크</small></div></div>
+  <div><h2>참여 신청</h2><p class="lead" style="margin:0">QR코드를 스캔해 신청서를 작성하세요.<br>문의: 수출영업2팀 담당자 (사내 메신저)</p></div>
+</div></section>
+
+
+<section class="quote" id="quote"><div class="wrap">
+  <h2>거래처 견적 요청</h2>
+  <p class="lead">필요한 정보를 입력하고 버튼을 누르면 메일 작성 창이 열립니다. 이 사이트는 요청 내용을 저장하지 않습니다.</p>
+  <div class="quote-box">
+    <div class="notice"><b>안내</b> 이 화면은 견적 요청 접수용입니다. 운임·선복·Free Time은 이 사이트에서 확정하지 않으며, <b>담당자가 승인 범위 확인 후 회신</b>합니다.</div>
+    <form class="quote-form" id="quoteForm" novalidate>
+      <label>회사명<input name="company" required></label>
+      <label>담당자명<input name="person" required></label>
+      <label>회신 연락처 (메일 또는 전화)<input name="contact" required></label>
+      <label>선적항 (POL)<input name="pol" value="부산 (BUSAN)"></label>
+      <label>양하항 (POD)
+        <select name="pod">
+          <option>JKT (자카르타)</option><option>SUB (수라바야)</option><option>SRG (세마랑)</option><option>BLW (블라완)</option><option>기타 (요청사항에 기재)</option>
+        </select>
+      </label>
+      <label>컨테이너 타입·수량<input name="cntr" placeholder="예: 40HC 2대"></label>
+      <label>품목<input name="commodity"></label>
+      <label>희망 선적 시기<input name="etd" placeholder="예: 12월 2주차"></label>
+      <label class="full">요청사항<textarea name="memo"></textarea></label>
+    </form>
+    <button type="button" class="btn" id="quoteBtn">견적 요청 메일 작성</button>
+    <p class="quote-msg" id="quoteMsg">수신 메일 주소는 확인 중입니다. 확정 전에는 메일 창의 받는 사람을 담당자에게 직접 지정해 주세요.</p>
+  </div>
+</div></section>
+
+<footer><b>OO상선 수출영업2팀</b><small>AI·업무자동화 확산 캠페인 · 2026</small></footer>
+
+<script>
+  const d = new Date(), w = ['일','월','화','수','목','금','토'][d.getDay()];
+  document.getElementById('today').textContent =
+    `오늘 ${d.getFullYear()}. ${String(d.getMonth()+1).padStart(2,'0')}. ${String(d.getDate()).padStart(2,'0')} (${w})`;
+
+  // 견적 요청 수신 주소: 확인 필요 (PRD 7장). 확정되면 아래 값만 채운다.
+  const QUOTE_TO = '';
+  document.getElementById('quoteBtn').addEventListener('click', () => {
+    const f = document.getElementById('quoteForm'), v = n => f.elements[n].value.trim();
+    const msg = document.getElementById('quoteMsg');
+    if (!v('company') || !v('person') || !v('contact')) {
+      msg.textContent = '회사명, 담당자명, 회신 연락처를 입력해 주세요.'; return;
+    }
+    const body = [
+      '[견적 요청 접수]',
+      `회사명: ${v('company')}`, `담당자: ${v('person')}`, `회신 연락처: ${v('contact')}`,
+      `POL: ${v('pol')}`, `POD: ${v('pod')}`, `컨테이너: ${v('cntr')}`,
+      `품목: ${v('commodity')}`, `희망 선적 시기: ${v('etd')}`, `요청사항: ${v('memo')}`,
+      '', '※ 본 메일은 요청 접수용입니다. 운임·선복·Free Time은 확정되지 않았으며, 담당자가 승인 범위 확인 후 회신합니다.'
+    ].join('\n');
+    const subject = `[견적 요청] ${v('company')} / ${v('pod')}`;
+    location.href = `mailto:${QUOTE_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    msg.textContent = '메일 작성 창을 열었습니다. 내용을 확인한 뒤 발송해 주세요. 담당자가 승인 범위 확인 후 회신합니다.';
+  });
+</script>
+</body>
+</html>
